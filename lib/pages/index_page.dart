@@ -11,20 +11,10 @@ class _IndexPageState extends State<IndexPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: const Text(
-          '首页',
-          style: TextStyle(color: Colors.blueAccent),
-        ),
-      ),
       body: Container(
         color: const Color.fromRGBO(28, 39, 53, 1),
         alignment: Alignment.topCenter,
-        child: Image.asset(
-          'lib/assets/image/init/splash3.png',
-          fit: BoxFit.fill,
-        ),
+        child: Image.asset('assets/images/init/splash3.png', fit: BoxFit.fill,),
       ),
     );
   }

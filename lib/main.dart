@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
             )),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: '首页'),
+      home: const IndexPage(),
       // 指定一个默认的initialRoute，如果没有从外部获取到特定的route
       // initialRoute: '/',
       // 在MaterialApp初始化时被调用，用于动态生成初始路由。
