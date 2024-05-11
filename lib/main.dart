@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/pages/home_page.dart';
+import 'package:flutter_application_1/pages/index_page.dart';
+import 'package:flutter_application_1/router/router.dart';
+// import 'package:flutter_application_1/router/router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,97 +11,41 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.green, brightness: Brightness.light),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.green, brightness: Brightness.light),
         textTheme: const TextTheme(
-          displayLarge: TextStyle(
-            fontSize: 72,
-            fontWeight: FontWeight.bold
-          ),
-          titleLarge: TextStyle(
-            fontSize: 30,
-            fontStyle: FontStyle.italic,
-            color: Colors.lightBlue,
-          ),
-          titleMedium: TextStyle(
-            color: Colors.deepOrange,
-          ),
-          titleSmall: TextStyle(
-            color: Colors.yellow,
-          )
-        ),
+            displayLarge: TextStyle(fontSize: 72, fontWeight: FontWeight.bold),
+            titleLarge: TextStyle(
+              fontSize: 30,
+              fontStyle: FontStyle.italic,
+              color: Colors.lightBlue,
+            ),
+            titleMedium: TextStyle(
+              color: Colors.deepOrange,
+            ),
+            titleSmall: TextStyle(
+              color: Colors.yellow,
+            )),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: '你好 Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // 该方法会在每次调用setState时重新执行，例如在上面的_incrementCounter方法中就是如此。
-    // Flutter框架已被优化，使得重新运行构建方法的速度很快，因此您只需重新构建需要更新的任何内容，
-    // 而不必逐个更改Widget实例。
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // backgroundColor: Colors.amber,
-        title: Text(widget.title, style: const TextStyle(
-          color: Colors.blueAccent
-        ),),
-      ),
-      body: Center(
-        child: Column(
-          // Column也是一个布局小部件。它接收一个子元素列表，并垂直排列它们。默认情况下，
-          // 它会根据子元素的横向尺寸来自适应调整自己的宽度，并尝试与父元素等高。
-          //
-          // Column具有多种属性来控制其自身的大小以及如何定位其子元素。在这里，我们使用
-          // mainAxisAlignment来使子元素在垂直方向上居中；这里的主轴是垂直轴，因为
-          // Column是垂直方向的（交叉轴则是水平方向）。
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
+      home: const MyHomePage(title: '首页'),
+      // 指定一个默认的initialRoute，如果没有从外部获取到特定的route
+      // initialRoute: '/',
+      // 在MaterialApp初始化时被调用，用于动态生成初始路由。
+      // 这个函数允许您根据应用程序的状态或特定条件来确定启动时的第一个页面，
+      // 提供了比直接设置home属性更灵活的路由控制方式。
+      // 这个功能在需要动态决定首个显示页面或者处理深层链接（deep linking）时特别有用。
+      // onGenerateInitialRoutes: (initialRoute) {
+      //   return [
+      //     MaterialPageRoute(builder: (context) => const IndexPage()),
+      //   ];
+      // },
+      // onGenerateRoute: Routers.generateRoute,
     );
   }
 }
