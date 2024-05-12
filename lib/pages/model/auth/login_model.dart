@@ -1,18 +1,27 @@
-import 'package:flutter/cupertino.dart';
+class LoginModel {
+  String? token;
+  String? refreshToken;
+  String? userGuid;
+  String? userName;
+  String? avatar;
 
-class LoginModel with ChangeNotifier {
-  TextEditingController userName = TextEditingController(text: '管理员');
-  TextEditingController password = TextEditingController(text: '123456');
-  bool isCanLogin = false;
-  bool obscureText = false;
+  LoginModel({this.token, this.refreshToken, this.userGuid, this.userName, this.avatar});
 
-  LoginModel() {
-    isCanLogin = false;
-    obscureText = true;
+  LoginModel.fromJson(Map<String, dynamic> json) {
+    token = json['token'];
+    refreshToken = json['refreshToken'];
+    userGuid = json['userGuid'];
+    userName = json['userName'];
+    avatar = json['avatar'];
   }
 
-  void setObscure() {
-    obscureText = !obscureText;
-    notifyListeners();
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['token'] = token;
+    data['refreshToken'] = refreshToken;
+    data['userGuid'] = userGuid;
+    data['userName'] = userName;
+    data['avatar'] = avatar;
+    return data;
   }
 }

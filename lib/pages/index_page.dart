@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'auth/login_page.dart';
+
 class IndexPage extends StatefulWidget {
   const IndexPage({super.key});
 
@@ -8,6 +10,14 @@ class IndexPage extends StatefulWidget {
 }
 
 class _IndexPageState extends State<IndexPage> {
+  @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

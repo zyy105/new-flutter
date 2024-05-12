@@ -1,3 +1,5 @@
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 double sw(double param) {
   return ScreenUtil().setWidth(param).toDouble();
 }
@@ -13,6 +15,6 @@ double sp(double param) {
 }
 
 // 设置字体、icon大小并跟随系统字体变化大小
-double ssp(double param) {
-  return ScreenUtil().setSp(param, allowFontScalingSelf: true).toDouble();
+double ssp(num param) {
+  return ScreenUtil().setSp(param).toDouble();
 }
